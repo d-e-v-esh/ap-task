@@ -10,12 +10,19 @@ const config = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      tab: "640px",
+
+      laptop: "1024px",
+
+      desk: "1280px",
+
+      "2xl": "1536px",
+    },
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      screens: {},
     },
     extend: {
       colors: {
