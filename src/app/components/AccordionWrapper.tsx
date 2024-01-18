@@ -1,19 +1,28 @@
 import {
-  Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export const AccordionWrapper = () => {
+type AccordionWrapperProps = {
+  triggerText: string;
+  contentText: string;
+  itemNumber: number;
+};
+
+export const AccordionWrapper = ({
+  triggerText,
+  contentText,
+  itemNumber,
+}: AccordionWrapperProps) => {
+  console.log({ itemNumber: `item-${itemNumber}` });
+
   return (
-    <Accordion type="single" collapsible>
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+    <AccordionItem value={`item-${itemNumber}`}>
+      <AccordionTrigger>{triggerText}</AccordionTrigger>
+      <AccordionContent>
+        <div dangerouslySetInnerHTML={{ __html: contentText }} />
+      </AccordionContent>
+    </AccordionItem>
   );
 };
