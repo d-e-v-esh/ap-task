@@ -13,141 +13,90 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import axios from "axios";
+import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 
-export function InnerNavbarDropdown() {
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">
-          <div className="px-2">All</div>
-          <IoMdArrowDropdown />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
-        {/* Vedant */}
-        <DropdownMenuGroup>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Upanishads</DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem>Ishavasya Upanishad</DropdownMenuItem>
-                <DropdownMenuItem>Shwetashvtara Upanishad</DropdownMenuItem>
-                <DropdownMenuItem>Kathopnishad</DropdownMenuItem>
-                <DropdownMenuItem>Niralamba Upanishad</DropdownMenuItem>
-                <DropdownMenuItem>Sarvasara Upanishad</DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-        </DropdownMenuGroup>
-
-        <DropdownMenuSeparator />
-
-        <DropdownMenuItem>Bhagavad Gita</DropdownMenuItem>
-
-        <DropdownMenuSeparator />
-
-        {/* Other Scriptures */}
-        <DropdownMenuGroup>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Other Scriptures</DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem>Paramahansa Gita</DropdownMenuItem>
-                <DropdownMenuItem>Ribhu Gita</DropdownMenuItem>
-                <DropdownMenuItem>Ajgar Gita</DropdownMenuItem>
-                <DropdownMenuItem>Ashtavakra Gita</DropdownMenuItem>
-                <DropdownMenuItem>Uttara Gita</DropdownMenuItem>
-                <DropdownMenuItem>Jivanmukta Gita</DropdownMenuItem>
-                <DropdownMenuItem>Putra Gita</DropdownMenuItem>
-                <DropdownMenuItem>Avadhuta Gita</DropdownMenuItem>
-                <DropdownMenuItem>Pingla Gita</DropdownMenuItem>
-                <DropdownMenuItem>Yog Vashisth</DropdownMenuItem>
-                <DropdownMenuItem>Shri Ramcharitra Manas</DropdownMenuItem>
-                <DropdownMenuItem>Vivekachudamani</DropdownMenuItem>
-                <DropdownMenuItem>Tatva Bodh</DropdownMenuItem>
-                <DropdownMenuItem>Atma Bodh</DropdownMenuItem>
-                <DropdownMenuItem>Vairagya Shatkam</DropdownMenuItem>
-                <DropdownMenuItem>Shringar Shatkam</DropdownMenuItem>
-                <DropdownMenuItem>Mahabharat</DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-        </DropdownMenuGroup>
-
-        <DropdownMenuSeparator />
-
-        {/* Saints and Masters */}
-        <DropdownMenuGroup>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Saints and Masters</DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem>Meera Bai</DropdownMenuItem>
-                <DropdownMenuItem>Saint Kabir</DropdownMenuItem>
-                <DropdownMenuItem>Saint Raidas</DropdownMenuItem>
-                <DropdownMenuItem>Saint Dariyadas</DropdownMenuItem>
-                <DropdownMenuItem>Saint Sahjobai</DropdownMenuItem>
-                <DropdownMenuItem>Saint Lalleshwari</DropdownMenuItem>
-                <DropdownMenuItem>Saint Rahim</DropdownMenuItem>
-                <DropdownMenuItem>Adi Shankaracharya</DropdownMenuItem>
-                <DropdownMenuItem>Saint Surdas</DropdownMenuItem>
-                <DropdownMenuItem>Tulsidas</DropdownMenuItem>
-                <DropdownMenuItem>Saint Namdev</DropdownMenuItem>
-                <DropdownMenuItem>Saint Dadu Dayal</DropdownMenuItem>
-                <DropdownMenuItem>Guru Nanak</DropdownMenuItem>
-                <DropdownMenuItem>Baba Bulleh Shah</DropdownMenuItem>
-                <DropdownMenuItem>Shree Patanjali</DropdownMenuItem>
-                <DropdownMenuItem>Swami Vivekananda</DropdownMenuItem>
-                <DropdownMenuItem>Shri Krishna</DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-        </DropdownMenuGroup>
-
-        <DropdownMenuSeparator />
-
-        {/* Other Streams */}
-        <DropdownMenuGroup>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Other Streams</DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem>Zen</DropdownMenuItem>
-                <DropdownMenuItem>Buddhism</DropdownMenuItem>
-                <DropdownMenuItem>Sikhism</DropdownMenuItem>
-                <DropdownMenuItem>Panchatantra</DropdownMenuItem>
-                <DropdownMenuItem>Jesus</DropdownMenuItem>
-                <DropdownMenuItem>Christianity</DropdownMenuItem>
-                <DropdownMenuItem>Sufism</DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-        </DropdownMenuGroup>
-
-        <DropdownMenuSeparator />
-
-        {/* Life Questions */}
-        <DropdownMenuGroup>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Life Questions</DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem>Relationships</DropdownMenuItem>
-                <DropdownMenuItem>Career and Job</DropdownMenuItem>
-                <DropdownMenuItem>Overthinking and loneliness</DropdownMenuItem>
-                <DropdownMenuItem>Depression and Anxiety</DropdownMenuItem>
-                <DropdownMenuItem>Women Liberation</DropdownMenuItem>
-                <DropdownMenuItem>Patriotism</DropdownMenuItem>
-                <DropdownMenuItem>Study and Education</DropdownMenuItem>
-                <DropdownMenuItem>India</DropdownMenuItem>
-                <DropdownMenuItem>Meditation</DropdownMenuItem>
-                <DropdownMenuItem>Environment</DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
+interface Tag {
+  name: {
+    hindi: string;
+    english: string;
+  };
+  tagId: number;
+  parent: number;
+  level: number;
+  hasChildren: boolean;
 }
+
+type APIResponse = Tag[][];
+
+type menuItem = {
+  item: string;
+  subItem: string[];
+};
+
+const InnerNavbarDropdown = async () => {
+  const menuItems: menuItem[] = [];
+
+  try {
+    const response = await axios.get<APIResponse>(
+      "https://api.acharyaprashant.org/v2/legacy/courses/tags"
+    );
+
+    const itemData = response.data[0];
+    const subItemData = response.data[1];
+
+    for (let i = 0; i < itemData.length; i++) {
+      menuItems[i] = { item: itemData[i].name.english, subItem: [] };
+    }
+
+    for (let i = 0; i < subItemData.length; i++) {
+      menuItems[subItemData[i].parent - 1].subItem.push(
+        subItemData[i].name.english
+      );
+    }
+  } catch (error) {
+    console.error(error);
+  }
+
+  const renderSubItems = (subItems: string[]) => (
+    <DropdownMenuPortal>
+      <DropdownMenuSubContent>
+        {subItems.map((subItem, index) => (
+          <DropdownMenuItem key={index}>{subItem}</DropdownMenuItem>
+        ))}
+      </DropdownMenuSubContent>
+    </DropdownMenuPortal>
+  );
+  return (
+    <div>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline">
+            <div className="px-2">All</div>
+            <IoMdArrowDropdown />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-56">
+          {menuItems.map((menuItem, index) => (
+            <DropdownMenuGroup key={index}>
+              {menuItem.subItem.length > 0 ? (
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger>
+                    {menuItem.item}
+                  </DropdownMenuSubTrigger>
+                  {renderSubItems(menuItem.subItem)}
+                </DropdownMenuSub>
+              ) : (
+                <DropdownMenuItem>{menuItem.item}</DropdownMenuItem>
+              )}
+              <DropdownMenuSeparator />
+            </DropdownMenuGroup>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
+  );
+};
+
+export default InnerNavbarDropdown;
