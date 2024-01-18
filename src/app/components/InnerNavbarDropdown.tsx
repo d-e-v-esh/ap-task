@@ -31,12 +31,23 @@ interface Tag {
 type APIResponse = Tag[][];
 
 type menuItem = {
-  item: string;
-  subItem: string[];
+  itemName: {
+    hindi: string;
+    english: string;
+  };
+  tag: number;
+  subItem: subItem[];
+};
+
+type subItem = {
+  subItemName: { hindi: string; english: string };
+  tag: number;
 };
 
 const InnerNavbarDropdown = async () => {
   const menuItems: menuItem[] = [];
+
+  const isEnglish = true;
 
   try {
     const response = await axios.get<APIResponse>(
@@ -47,23 +58,38 @@ const InnerNavbarDropdown = async () => {
     const subItemData = response.data[1];
 
     for (let i = 0; i < itemData.length; i++) {
-      menuItems[i] = { item: itemData[i].name.english, subItem: [] };
+      menuItems[i] = {
+        tag: itemData[i].tagId,
+        itemName: {
+          english: itemData[i].name.english,
+          hindi: itemData[i].name.hindi,
+        },
+        subItem: [],
+      };
     }
 
     for (let i = 0; i < subItemData.length; i++) {
-      menuItems[subItemData[i].parent - 1].subItem.push(
-        subItemData[i].name.english
-      );
+      menuItems[subItemData[i].parent - 1].subItem.push({
+        subItemName: {
+          english: subItemData[i].name.english,
+          hindi: subItemData[i].name.hindi,
+        },
+        tag: subItemData[i].tagId,
+      });
     }
   } catch (error) {
     console.error(error);
   }
 
-  const renderSubItems = (subItems: string[]) => (
+  const renderSubItems = (subItems: subItem[]) => (
     <DropdownMenuPortal>
       <DropdownMenuSubContent>
         {subItems.map((subItem, index) => (
-          <DropdownMenuItem key={index}>{subItem}</DropdownMenuItem>
+          <DropdownMenuItem key={index}>
+            {isEnglish
+              ? subItem.subItemName.english
+              : subItem.subItemName.hindi}
+          </DropdownMenuItem>
         ))}
       </DropdownMenuSubContent>
     </DropdownMenuPortal>
@@ -83,12 +109,18 @@ const InnerNavbarDropdown = async () => {
               {menuItem.subItem.length > 0 ? (
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger>
-                    {menuItem.item}
+                    {isEnglish
+                      ? menuItem.itemName.english
+                      : menuItem.itemName.hindi}
                   </DropdownMenuSubTrigger>
                   {renderSubItems(menuItem.subItem)}
                 </DropdownMenuSub>
               ) : (
-                <DropdownMenuItem>{menuItem.item}</DropdownMenuItem>
+                <DropdownMenuItem>
+                  {isEnglish
+                    ? menuItem.itemName.english
+                    : menuItem.itemName.hindi}
+                </DropdownMenuItem>
               )}
               <DropdownMenuSeparator />
             </DropdownMenuGroup>
