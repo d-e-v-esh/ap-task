@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { AccordionWrapper } from "./AccordionWrapper";
 import { Accordion } from "@/components/ui/accordion";
+import Link from "next/link";
 
 type FAQ = {
   question: string;
@@ -31,10 +32,16 @@ const FAQSection = () => {
         <div className="tab:flex">
           <div className="pb-10 tab:w-1/3 tab:pb-0">
             <div>
-              FAQs
+              <div className="text-lg font-bold">FAQs</div>
               <div>
-                Can’t find the answer you’re looking for? Reach out to our
-                support team.
+                Can&rsquo;t find the answer you&rsquo;re looking for? Reach out
+                to our
+                <Link
+                  className="text-orange-500"
+                  href="https://acharyaprashant.org/en/technical-support">
+                  {` support `}
+                </Link>
+                team.
               </div>
             </div>
           </div>
