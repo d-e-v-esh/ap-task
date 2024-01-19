@@ -3,6 +3,7 @@
 import Image from "next/image";
 import BreadCrumb from "./Breadcrumbs";
 import { useState } from "react";
+import CourseShareLinks from "./CourseShareLinks";
 
 type CourseDescriptionProps = {
   title: string;
@@ -48,7 +49,10 @@ export const CourseDescription = ({
                 <div className="absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black align-bottom text-base font-semibold text-white"></div>
               </div>
             </div>
+
+            <CourseShareLinks />
           </div>
+
           <div className="flex flex-col self-stretch pt-4 text-sm tab:pl-4 tab:pt-0 laptop:text-lg">
             <div className="text-lg font-medium text-gray-title laptop:text-xl">
               <span>{subtitle}</span>
