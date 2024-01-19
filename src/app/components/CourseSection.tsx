@@ -60,7 +60,6 @@ const CourseSection = async () => {
     const response = await axios.get<ResponseType>(
       "https://api.acharyaprashant.org/v2/legacy/courses/series/optuser/course-series-eeb9d3"
     );
-    console.log(response.data);
     courses = response.data.courses;
     courseDetails = response.data.details;
   } catch (error) {
