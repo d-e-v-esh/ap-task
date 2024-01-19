@@ -111,8 +111,8 @@ const NavSide = ({ navItems }: { navItems: NavItem[] }) => {
   return (
     <div className="hidden h-full flex-row items-stretch justify-center font-medium tab:flex">
       {navItems.map((item, index) => (
-        <NavigationMenu className="w-36">
-          <NavigationMenuList>
+        <NavigationMenu className="w-36" key={index}>
+          <NavigationMenuList key={index}>
             <NavItemComponent key={index} item={item} />
           </NavigationMenuList>
         </NavigationMenu>
