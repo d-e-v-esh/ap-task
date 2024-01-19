@@ -54,7 +54,7 @@ const CourseSection = async () => {
 
   let courses: Course[] = [];
   const imageUrl =
-    "https://cimg.acharyaprashant.org/images/img-4337ee73-d8a3-4c8b-951b-d09a5a6468d3/20/image.jpg";
+    "https://cimg.acharyaprashant.org/images/img-4337ee73-d8a3-4c8b-951b-d09a5a6468d3/10/image.jpg";
 
   try {
     const response = await axios.get<ResponseType>(
