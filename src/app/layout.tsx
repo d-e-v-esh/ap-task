@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Footer } from "./components/Footer";
 import { Banner } from "./components/Banner";
 import { InnerNavbar } from "./components/InnerNavbar";
+import { Navbar } from "./components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 const devanagari = Noto_Sans_Devanagari({ subsets: ["devanagari"] });
@@ -27,9 +28,11 @@ export default function RootLayout({
           inter.className,
           devanagari.className
         )}>
-        <main className="flex min-h-screen w-full flex-col justify-between">
+        <main className="flex min-h-screen w-full flex-col justify-between relative">
+          <Navbar />
           <Banner />
           <InnerNavbar />
+          {/* <div className="relative mx-auto max-w-screen-2xl">{children}</div> */}
           {children}
           <Footer />
         </main>
