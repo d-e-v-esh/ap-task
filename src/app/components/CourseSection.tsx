@@ -1,6 +1,7 @@
 import axios from "axios";
 import { CourseDescription } from "./CourseDescription";
 import CourseCard from "./CourseCard";
+import { Separator } from "@/components/ui/separator";
 
 type Thumbnail = {
   id: string;
@@ -48,6 +49,7 @@ type ResponseType = {
 };
 
 const CourseSection = async () => {
+  // @ts-ignore
   let courseDetails: CourseDetails = {};
 
   let courses: Course[] = [];
@@ -80,7 +82,10 @@ const CourseSection = async () => {
           <div className="mt-8 text-lg font-medium tab:mt-12 tab:text-xl laptop:mt-16">
             <span>Video Series {`(${courseDetails.coursesCount})`}</span>
           </div>
-          <div className="mt-1 h-[0.5px] w-full bg-gray-400 tab:mt-2"></div>
+          <Separator
+            orientation="horizontal"
+            className="mt-1 h-[0.5px] w-full bg-gray-300 tab:mt-2"
+          />
         </div>
       </div>
 
