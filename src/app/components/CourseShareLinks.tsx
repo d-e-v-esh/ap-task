@@ -22,11 +22,11 @@ const CourseShareLinks = () => {
               <a className="px-1.5 group" href="#">
                 <FaFacebookF
                   color="#3E6FA7"
-                  className="h-7 w-7 group-hover:hidden"
+                  className="h-6 w-6 group-hover:hidden"
                 />
                 <FaFacebook
                   color="#3E6FA7"
-                  className="h-7 w-7 hidden group-hover:block"
+                  className="h-6 w-6 hidden group-hover:block"
                 />
               </a>
 
@@ -37,11 +37,11 @@ const CourseShareLinks = () => {
 
                 <FaTwitter
                   color="#08BBEE"
-                  className="h-7 w-7 group-hover:hidden"
+                  className="h-6 w-6 group-hover:hidden"
                 />
                 <AiFillTwitterCircle
                   color="#08BBEE"
-                  className="h-7 w-7 hidden group-hover:block"
+                  className="h-6 w-6 hidden group-hover:block"
                 />
               </a>
 
@@ -50,11 +50,11 @@ const CourseShareLinks = () => {
                 href="https://wa.me/?text=%0Ahttps%3A%2F%2Facharyaprashant.org%2Fen%2Fvideo-modules%2Fseries%2Fcourse-series-eeb9d3">
                 <FaWhatsapp
                   color="#06BA27"
-                  className="h-7 w-7 group-hover:hidden"
+                  className="h-6 w-6 group-hover:hidden"
                 />
                 <FaWhatsappSquare
                   color="#06BA27"
-                  className="h-7 w-7 hidden group-hover:block"
+                  className="h-6 w-6 hidden group-hover:block"
                 />
               </a>
 
@@ -65,11 +65,11 @@ const CourseShareLinks = () => {
 
                 <FaLinkedinIn
                   color="#0A66C2"
-                  className="h-7 w-7 group-hover:hidden"
+                  className="h-6 w-6 group-hover:hidden"
                 />
                 <FaLinkedin
                   color="#0A66C2"
-                  className="h-7 w-7 hidden group-hover:block"
+                  className="h-6 w-6 hidden group-hover:block"
                 />
               </a>
             </div>
