@@ -3,14 +3,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { AccordionWrapper } from "./AccordionWrapper";
-import { Accordion, AccordionItem } from "@/components/ui/accordion";
+import { Accordion } from "@/components/ui/accordion";
 
+// TODO: Remove Underline
+// TODO: Left Align (Mobile)
 type FAQ = {
   question: string;
   answer: string;
 };
 
-const FAQs = () => {
+const FAQSection = () => {
   const [faqData, setFaqData] = useState<FAQ[]>([]);
   useEffect(() => {
     axios
@@ -58,4 +60,4 @@ const FAQs = () => {
   );
 };
 
-export default FAQs;
+export default FAQSection;
