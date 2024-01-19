@@ -154,11 +154,13 @@ const DownloadApp = () => {
         </div>
 
         <div className="h-8 w-28 tab:w-[114px]">
-          <Image
-            src={AppStoreImage}
-            alt="App Store"
-            className="rounded-md border-[1.4px] border-slate-300"
-          />
+          <Link href="https://apps.apple.com/in/app/acharya-prashant/id1603611866">
+            <Image
+              src={AppStoreImage}
+              alt="App Store"
+              className="rounded-md border-[1.4px] border-slate-300"
+            />
+          </Link>
         </div>
       </div>
     </div>
@@ -170,21 +172,51 @@ const SocialMediaLinks = () => (
     <div className="mb-6 flex flex-col">
       <div className="mb-2.5 text-slate-300">For English</div>
       <div className="flex space-x-2">
-        <SocialMediaIcon icon={<FaYoutube />} url="#" />
-        <SocialMediaIcon icon={<FaTwitter />} url="#" />
-        <SocialMediaIcon icon={<FaFacebookF />} url="#" />
-        <SocialMediaIcon icon={<FaInstagram />} url="#" />
-        <SocialMediaIcon icon={<FaWikipediaW />} url="#" />
+        <SocialMediaIcon
+          icon={<FaYoutube />}
+          url="https://www.youtube.com/c/AcharyaPrashant"
+        />
+        <SocialMediaIcon
+          icon={<FaTwitter />}
+          url="https://twitter.com/Prashant_Advait"
+        />
+        <SocialMediaIcon
+          icon={<FaFacebookF />}
+          url="https://www.facebook.com/AdvaitAcharyaPrashant"
+        />
+        <SocialMediaIcon
+          icon={<FaInstagram />}
+          url="https://www.instagram.com/acharya_prashant_paf/"
+        />
+        <SocialMediaIcon
+          icon={<FaWikipediaW />}
+          url="https://en.wikipedia.org/wiki/Acharya_Prashant"
+        />
       </div>
     </div>
     <div className="mb-6 flex flex-col">
       <div className="mb-2.5 text-slate-300">For Hindi</div>
       <div className="flex space-x-2">
-        <SocialMediaIcon icon={<FaYoutube />} url="#" />
-        <SocialMediaIcon icon={<FaTwitter />} url="#" />
-        <SocialMediaIcon icon={<FaThreads />} url="#" />
-        <SocialMediaIcon icon={<FaFacebookF />} url="#" />
-        <SocialMediaIcon icon={<FaInstagram />} url="#" />
+        <SocialMediaIcon
+          icon={<FaYoutube />}
+          url="https://www.youtube.com/c/ShriPrashant"
+        />
+        <SocialMediaIcon
+          icon={<FaTwitter />}
+          url="https://twitter.com/Advait_Prashant"
+        />
+        <SocialMediaIcon
+          icon={<FaThreads />}
+          url="https://www.threads.net/@acharya_prashant_ap"
+        />
+        <SocialMediaIcon
+          icon={<FaFacebookF />}
+          url="https://www.facebook.com/Acharya.Prashant.Advait"
+        />
+        <SocialMediaIcon
+          icon={<FaInstagram />}
+          url="https://www.instagram.com/acharya_prashant_ap/"
+        />
       </div>
     </div>
   </>
@@ -199,7 +231,9 @@ const FooterContactInfo = () => (
       <div className="pr-2 text-slate-300">
         <LuMail />
       </div>
-      <a href="#" className="text-slate-300 hover:text-orange-700">
+      <a
+        href="mailto:support@advait.org.in"
+        className="text-slate-300 hover:text-orange-700">
         support@advait.org.in
       </a>
     </div>
@@ -207,7 +241,9 @@ const FooterContactInfo = () => (
       <div className="pr-2 text-slate-300">
         <FaWhatsapp />
       </div>
-      <a href="#" className="text-slate-300 hover:text-orange-700">
+      <a
+        href="https://wa.me/+919643750710"
+        className="text-slate-300 hover:text-orange-700">
         +91 9643750710
       </a>
     </div>
@@ -215,7 +251,9 @@ const FooterContactInfo = () => (
       <div className="pr-2 text-slate-300">
         <IoIosCall />
       </div>
-      <a href="#" className="text-slate-300 hover:text-orange-700">
+      <a
+        href="tel:+919650585100"
+        className="text-slate-300 hover:text-orange-700">
         +91 9650585100
       </a>
     </div>
