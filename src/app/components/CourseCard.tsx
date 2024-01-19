@@ -23,7 +23,17 @@ const CourseCard = ({
   originalAmount,
   language,
 }: CourseCardProps) => {
-  const duration = courseHours;
+  function formatHoursAndMinutes(hourValue: number): string {
+    const hours = Math.floor(hourValue);
+    const minutes = Math.round((hourValue - hours) * 60);
+    const hourUnit = hours === 1 ? "hour" : "hours";
+    const minuteUnit = minutes === 1 ? "minute" : "minutes";
+
+    if (hours) {
+      return `${hours} ${hourUnit} ${minutes} ${minuteUnit}`;
+    }
+    return `${minutes} ${minuteUnit}`;
+  }
 
   return (
     <div className="group flex cursor-pointer flex-col justify-between space-y-2 overflow-hidden px-4 pt-4 hover:bg-slate-100 laptop:rounded-lg laptop:hover:shadow">
@@ -45,7 +55,7 @@ const CourseCard = ({
               <span className={devanagari.className}>{subtitle}</span>
             </div>
             <div className="pt-1 text-xs text-gray-subtitle laptop:text-sm">
-              <span>{courseHours}</span>
+              <span>{formatHoursAndMinutes(courseHours)}</span>
             </div>
             <div className="pt-1 text-xs text-gray-600 laptop:text-sm">
               <span>Contribution: ₹{amount}</span>
