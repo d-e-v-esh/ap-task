@@ -2,6 +2,7 @@ import React from "react";
 import { devanagari } from "../layout";
 import { BiSolidTagAlt } from "react-icons/bi";
 import { cn } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
 
 type CourseCardProps = {
   title: string;
@@ -22,11 +23,13 @@ const CourseCard = ({
   originalAmount,
   language,
 }: CourseCardProps) => {
+  const duration = courseHours;
+
   return (
     <div className="group flex cursor-pointer flex-col justify-between space-y-2 overflow-hidden px-4 pt-4 hover:bg-slate-100 laptop:rounded-lg laptop:hover:shadow">
       <div className="flex flex-col space-y-2">
         <div className="self-start pb-2">
-          <div className="w-12 h-6 bg-slate-400  flex justify-center items-center">
+          <div className="w-12 h-6 bg-slate-400  flex justify-center items-center rounded-lg">
             <span className={cn("text-white text-xs", devanagari.className)}>
               भाग {order}
             </span>
@@ -39,15 +42,15 @@ const CourseCard = ({
               <span className={devanagari.className}>{title}</span>
             </div>
             <div className="text-sm leading-normal text-gray-600 laptop:text-base">
-              <span>{subtitle}</span>
+              <span className={devanagari.className}>{subtitle}</span>
             </div>
             <div className="pt-1 text-xs text-gray-subtitle laptop:text-sm">
-              <span className="font-en svelte-t3mcl">{courseHours}</span>
+              <span>{courseHours}</span>
             </div>
-            <div className="pt-1 text-xs text-gray-subtitle laptop:text-sm">
-              <span>Contribution: {amount}</span>
+            <div className="pt-1 text-xs text-gray-600 laptop:text-sm">
+              <span>Contribution: ₹{amount}</span>
               <del>
-                <span className="pl-1">
+                <span className="pl-3">
                   <span>₹{originalAmount}</span>
                 </span>
               </del>
@@ -55,8 +58,12 @@ const CourseCard = ({
           </div>
           <div className="mt-2 flex flex-wrap text-xs">
             <div className="mr-1">
-              <div className="flex items-center rounded px-1.5 py-0.5 text-xs text-slate-700 bg-blue-background">
-                <span>{language}</span>
+              <div className="flex items-center rounded px-1.5 py-0.5 text-xs text-slate-700 bg-blue-200">
+                {language === "hindi" ? (
+                  <span>Hindi</span>
+                ) : (
+                  <span>English</span>
+                )}
               </div>
             </div>
           </div>
@@ -66,21 +73,25 @@ const CourseCard = ({
             <div
               id="main-website-add-to-cart-borderless-button"
               className="cursor-pointer rounded-md text-center transition-colors transition duration-150">
-              <span className="text-orange-600">ADD TO CART</span>
+              <span className="text-orange-600 hover:text-orange-800">
+                ADD TO CART
+              </span>
             </div>
             <div className="self-stretch py-2">
-              <div className="h-full w-px bg-slate-900"> d</div>
+              <Separator orientation="vertical" className="bg-gray-300 h-3" />
             </div>
             <div
               id="main-website-enroll-in-course-button"
               className="cursor-pointer rounded-md text-center transition-colors transition duration-150">
-              <span className="text-orange-600">ENROL</span>
+              <span className="text-orange-600  hover:text-orange-800">
+                ENROL
+              </span>
             </div>
           </div>
         </div>
       </div>
       <div className="pt-2 group-hover:invisible">
-        <div className="h-[0.5px] w-full bg-gray-400"></div>
+        <Separator orientation="horizontal" className="bg-gray-300" />
       </div>
     </div>
   );
