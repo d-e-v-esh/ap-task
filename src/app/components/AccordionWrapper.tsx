@@ -17,7 +17,7 @@ export const AccordionWrapper = ({
 }: AccordionWrapperProps) => {
   return (
     <AccordionItem value={`item-${itemNumber}`}>
-      <AccordionTrigger>{triggerText}</AccordionTrigger>
+      <AccordionTrigger className="text-left">{triggerText}</AccordionTrigger>
       <AccordionContent>
         <div dangerouslySetInnerHTML={{ __html: contentText }} />
       </AccordionContent>
