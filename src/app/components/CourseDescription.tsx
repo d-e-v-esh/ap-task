@@ -4,6 +4,7 @@ import Image from "next/image";
 import BreadCrumb from "./Breadcrumbs";
 import { useState } from "react";
 import CourseShareLinks from "./CourseShareLinks";
+import { devanagari } from "../layout";
 
 type CourseDescriptionProps = {
   title: string;
@@ -34,7 +35,7 @@ export const CourseDescription = ({
         <div
           className="text-lg font-semibold text-gray-title tab:text-xl laptop:py-0 laptop:text-2xl py-1.5"
           id="main-website-header-text">
-          <span>{title}</span>
+          <span className={devanagari.className}>{title}</span>
         </div>
       </div>
 
@@ -55,14 +56,14 @@ export const CourseDescription = ({
 
           <div className="flex flex-col self-stretch pt-4 text-sm tab:pl-4 tab:pt-0 laptop:text-lg">
             <div className="text-lg font-medium text-gray-title laptop:text-xl">
-              <span>{subtitle}</span>
+              <span className={devanagari.className}>{subtitle}</span>
             </div>
             <div className="text-justify text-base text-gray-subtitle tab:pr-4">
               <div
                 className={`${
                   isDescriptionExpanded ? "block" : "hidden"
                 } tab:block`}>
-                <span className="">{description}</span>
+                <span className={devanagari.className}>{description}</span>
               </div>
               <div className="tab:hidden">
                 <span>
@@ -73,7 +74,7 @@ export const CourseDescription = ({
                 <button
                   onClick={toggleDescription}
                   className="cursor-pointer text-orange-600 hover:text-orange-800">
-                  <span className="">
+                  <span className={devanagari.className}>
                     {isDescriptionExpanded ? "कम पढ़ें" : "और पढ़ें"}
                   </span>
                 </button>
