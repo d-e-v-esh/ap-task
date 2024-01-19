@@ -85,7 +85,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <div className="h-12 bg-orange-600">
+    <div className="h-12 z-40 bg-orange-600">
       <div className="mx-auto h-full max-w-screen-2xl select-none text-white bg-orange-600">
         <div className="flex h-full justify-between text-xs">
           <div className="flex items-stretch pl-4 text-sm laptop:pl-8">
@@ -111,7 +111,7 @@ const NavSide = ({ navItems }: { navItems: NavItem[] }) => {
   return (
     <div className="hidden h-full flex-row items-stretch justify-center font-medium tab:flex">
       {navItems.map((item, index) => (
-        <NavigationMenu>
+        <NavigationMenu className="w-36">
           <NavigationMenuList>
             <NavItemComponent key={index} item={item} />
           </NavigationMenuList>

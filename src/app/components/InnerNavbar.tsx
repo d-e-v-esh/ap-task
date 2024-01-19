@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export const InnerNavbar = () => {
   return (
-    <div className="sticky top-0 z-50 bg-white shadow">
+    <div className="sticky top-0 z-30 bg-white shadow">
       <div className="mx-auto max-w-screen-2xl select-none">
         <div className="h-12">
           <div className="flex h-full w-full items-center justify-between">
