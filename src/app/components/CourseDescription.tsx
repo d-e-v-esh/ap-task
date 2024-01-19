@@ -5,6 +5,7 @@ import BreadCrumb from "./Breadcrumbs";
 import { useState } from "react";
 import CourseShareLinks from "./CourseShareLinks";
 import { devanagari } from "../layout";
+import APSignature from "../../img/ic_apsignature_hindi.png";
 
 type CourseDescriptionProps = {
   title: string;
@@ -42,10 +43,15 @@ export const CourseDescription = ({
         <div className="flex flex-col tab:flex-row tab:items-start">
           <div className="w-full shrink-0 tab:w-2/5">
             <div className="aspect-[16/9] w-full">
-              {/* Image here */}
+              {/* Image */}
               <div className="relative h-full w-full overflow-hidden rounded">
-                <Image alt={title} src={imageUrl} fill />
-                <div className="absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black align-bottom text-base font-semibold text-white"></div>
+                <Image fill alt={title} src={imageUrl} />
+                <div className="absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black align-bottom text-base font-semibold text-white" />
+                <Image
+                  className="absolute object-contain w-24 right-1 bottom-1"
+                  src={APSignature}
+                  alt="AP Name Logo"
+                />
               </div>
             </div>
 
