@@ -85,7 +85,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <div className="h-12">
+    <div className="h-12 bg-orange-600">
       <div className="mx-auto h-full max-w-screen-2xl select-none text-white bg-orange-600">
         <div className="flex h-full justify-between text-xs">
           <div className="flex items-stretch pl-4 text-sm laptop:pl-8">
@@ -123,7 +123,7 @@ const NavSide = ({ navItems }: { navItems: NavItem[] }) => {
 
 const NavItemComponent = ({ item }: { item: NavItem }) => {
   return (
-    <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
+    <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4">
       {item.subItems ? (
         <>
           <NavigationMenuTrigger className="bg-orange-600 hover:bg-orange-300 hover:text-white">

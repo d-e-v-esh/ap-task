@@ -14,7 +14,7 @@ const CourseShareLinks = () => {
       <div className="hidden pt-4 tab:block">
         <div className="flex flex-col items-center tab:items-start">
           <div className="pb-3 text-sm font-medium text-gray-title tab:pb-1">
-            <span className="font-en svelte-t3mcl">Share this series</span>
+            <span>Share this series</span>
             <span className="invisible tab:visible">:</span>
           </div>
           <div className="w-full px-8 tab:px-0 tab:mt-2 tab:-ml-1.5">

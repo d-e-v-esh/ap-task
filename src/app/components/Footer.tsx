@@ -202,7 +202,7 @@ const Copyright = () => (
       <a
         href=""
         className="cursor-pointer text-slate-300 hover:text-orange-700">
-        <span className="font-en svelte-t3mcl">Privacy Policy</span>
+        <span>Privacy Policy</span>
       </a>
       <div className="text-slate-300">|</div>
       <a

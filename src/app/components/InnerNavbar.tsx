@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import InnerNavbarDropdown from "./InnerNavbarDropdown";
 import Image from "next/image";
 import videoSeries from "../../img/ic_videoseries.png";
+import Link from "next/link";
 
 export const InnerNavbar = () => {
   return (
@@ -32,8 +33,15 @@ export const InnerNavbar = () => {
                       <div className="relative flex w-full flex-row">
                         <InnerNavbarDropdown />
 
-                        <Input />
-                        <Button variant="outline" size="icon">
+                        <Input
+                          className="focus-visible:ring-0 focus-visible:border-none focus-visible:outline-none caret-orange-600"
+                          placeholder="Search for video series"
+                        />
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          type="submit"
+                          className="bg-orange-200">
                           <IoSearch className="h-4 w-4" />
                         </Button>
                       </div>
@@ -43,7 +51,11 @@ export const InnerNavbar = () => {
               </div>
 
               <div className="flex h-10 content-center items-center justify-center space-x-4 pr-4 laptop:pr-12">
-                <Button>Login</Button>
+                <Button
+                  asChild
+                  className="cursor-pointer w-14 h-8 rounded-md text-center transition-colors transition duration-150 bg-orange-500 hover:bg-orange-600">
+                  <Link href="https://acharyaprashant.org/en/login">Login</Link>
+                </Button>
               </div>
             </div>
           </div>
