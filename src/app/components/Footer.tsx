@@ -8,6 +8,11 @@ import { FaThreads } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoIosCall } from "react-icons/io";
 import { LuMail } from "react-icons/lu";
+import Image from "next/image";
+import HeadIcon from "../../img/ic_favicon.png";
+import Link from "next/link";
+import PlayStoreImage from "../../img/ic_googleplay.png";
+import AppStoreImage from "../../img/ic_appstore.png";
 
 const FooterTitle = ({ children }: { children: React.ReactNode }) => (
   <div className="mb-[13px] font-semibold text-slate-100">{children}</div>
@@ -101,7 +106,7 @@ export const Footer = () => {
         </FooterSection>
 
         <FooterSection title="DOWNLOAD APP">
-          <SocialMediaLinks />
+          <DownloadApp />
         </FooterSection>
 
         <FooterContactInfo />
@@ -127,7 +132,38 @@ const FooterSection = ({
   </div>
 );
 
-const DownloadApp = () => {};
+const DownloadApp = () => {
+  return (
+    <div>
+      <div className="mb-5 hidden items-center tab:flex">
+        <Image className="mr-2 h-6 w-6" src={HeadIcon} alt="Acharya Prashant" />
+
+        <div className="text-slate-100 laptop:whitespace-nowrap">
+          <span>Acharya Prashant</span>
+        </div>
+      </div>
+      <div className="flex tab:flex-col">
+        <div className="mr-4 h-8 w-28 tab:mb-5 tab:mr-0 tab:w-[114px]">
+          <Link href="https://play.google.com/store/apps/details?id=org.acharyaprashant.apbooks">
+            <Image
+              src={PlayStoreImage}
+              alt="Play Store"
+              className="rounded-md border-[1.4px] border-slate-300"
+            />
+          </Link>
+        </div>
+
+        <div className="h-8 w-28 tab:w-[114px]">
+          <Image
+            src={AppStoreImage}
+            alt="App Store"
+            className="rounded-md border-[1.4px] border-slate-300"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const SocialMediaLinks = () => (
   <>
