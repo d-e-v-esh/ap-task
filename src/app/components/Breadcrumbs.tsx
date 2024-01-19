@@ -1,4 +1,5 @@
 import { MdArrowForwardIos } from "react-icons/md";
+import { devanagari } from "../layout";
 const BreadCrumb = ({ title }: { title: string }) => {
   return (
     <div>
@@ -11,7 +12,7 @@ const BreadCrumb = ({ title }: { title: string }) => {
             <MdArrowForwardIos width={1} height={1} />
           </div>
           <div className="mr-1 text-sm font-medium">
-            <span className="font-hi svelte-t3mcl">{title}</span>
+            <span className={devanagari.className}>{title}</span>
           </div>
         </div>
       </div>
