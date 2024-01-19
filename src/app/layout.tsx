@@ -25,8 +25,7 @@ export default function RootLayout({
       <body
         className={cn(
           "relative h-full font-sans antialiased",
-          inter.className,
-          devanagari.className
+          inter.className
         )}>
         <main className="flex min-h-screen w-full flex-col justify-between relative">
           <Navbar />
