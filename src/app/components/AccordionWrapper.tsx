@@ -15,8 +15,6 @@ export const AccordionWrapper = ({
   contentText,
   itemNumber,
 }: AccordionWrapperProps) => {
-  console.log({ itemNumber: `item-${itemNumber}` });
-
   return (
     <AccordionItem value={`item-${itemNumber}`}>
       <AccordionTrigger>{triggerText}</AccordionTrigger>
