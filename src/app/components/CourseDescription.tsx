@@ -57,23 +57,22 @@ export const CourseDescription = ({
               <span className={devanagari.className}>{subtitle}</span>
             </div>
             <div className="text-justify text-base text-gray-subtitle tab:pr-4">
-              <div
-                className={`${
-                  isDescriptionExpanded ? "block" : "hidden"
-                } tab:block`}>
+              <div className="hidden tab:block">
                 <span className={devanagari.className}>{description}</span>
               </div>
-              <div className="tab:hidden">
-                <span>
-                  {isDescriptionExpanded
-                    ? description
-                    : `${description.slice(0, 160)}...`}
+              <div className="block tab:hidden">
+                <span className={devanagari.className}>
+                  <span>
+                    {isDescriptionExpanded
+                      ? description
+                      : `${description.slice(0, 160)}...`}
+                  </span>
                 </span>
                 <button
                   onClick={toggleDescription}
                   className="cursor-pointer text-orange-600 hover:text-orange-800">
                   <span className={devanagari.className}>
-                    {isDescriptionExpanded ? "कम पढ़ें" : "और पढ़ें"}
+                    {isDescriptionExpanded ? "  कम दिखाएं" : "  और पढ़ें"}
                   </span>
                 </button>
               </div>
