@@ -1,29 +1,105 @@
 "use client";
 
+import React from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
+  NavigationMenuTrigger,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { RxHamburgerMenu } from "react-icons/rx";
 import { FiPhone } from "react-icons/fi";
-import Link from "next/link"; // Ensure you import Link from 'next/link'
+import { RxHamburgerMenu } from "react-icons/rx";
+import Link from "next/link";
+import Image from "next/image";
+import HeadIcon from "../../img/ic_favicon.png";
+
+type NavItem = {
+  label: string;
+  link: string;
+  icon?: React.ReactNode;
+  subItems?: NavItem[];
+};
 
 export const Navbar = () => {
+  const leftNavItems: NavItem[] = [
+    { label: "Home", link: "https://acharyaprashant.org/" },
+    {
+      label: "Live Sessions",
+      link: "#",
+      subItems: [
+        { label: "Bhagavad Gita", link: "https://acharyaprashant.org/en/gita" },
+        {
+          label: "Sant Sarita",
+          link: "https://acharyaprashant.org/en/sant-sarita",
+        },
+        {
+          label: "Vedanta Samhita",
+          link: "https://acharyaprashant.org/en/vedant-samhita",
+        },
+        {
+          label: "Bodh Pratyusha",
+          link: "https://acharyaprashant.org/en/bodh-pratyusha",
+        },
+      ],
+    },
+    { label: "Video Series", link: "https://acharyaprashant.org/en/courses" },
+    { label: "AP Books", link: "https://acharyaprashant.org/en/books" },
+    { label: "AP Articles", link: "https://acharyaprashant.org/en/articles" },
+    {
+      label: "Invite",
+      link: "#",
+      subItems: [
+        {
+          label: "For a talk",
+          link: "https://acharyaprashant.org/en/invite?tIn=0",
+        },
+        {
+          label: "For an interview",
+          link: "https://acharyaprashant.org/en/invite?tIn=1",
+        },
+      ],
+    },
+    { label: "In Media", link: "https://acharyaprashant.org/en/media" },
+    { label: "Careers", link: "https://acharyaprashant.org/en/hiring" },
+    { label: "Donate", link: "https://acharyaprashant.org/en/contribute" },
+  ];
+
+  const rightNavItems: NavItem[] = [
+    {
+      label: "EN",
+      link: "#",
+      subItems: [
+        { label: "Hindi", link: "#" },
+        { label: "English", link: "#" },
+      ],
+    },
+    {
+      label: "Contact",
+      link: "https://acharyaprashant.org/en/enquiry",
+      icon: <FiPhone className="w-5 h-5" />,
+    },
+    { label: "Menu", link: "#", icon: <RxHamburgerMenu className="w-5 h-5" /> },
+  ];
+
   return (
     <div className="h-12">
       <div className="mx-auto h-full max-w-screen-2xl select-none text-white bg-orange-600">
         <div className="flex h-full justify-between text-xs">
           <div className="flex items-stretch pl-4 text-sm laptop:pl-8">
-            <Left />
+            <div className="shrink-0 self-center">
+              <Image
+                src={HeadIcon}
+                className="mr-2 h-8 w-8 rounded-full"
+                alt="Picture of the author"
+              />
+            </div>
+            <NavSide navItems={leftNavItems} />
           </div>
           <div className="flex h-full content-center items-center justify-center laptop:mt-[1px] laptop:pr-8">
-            <Right />
+            <NavSide navItems={rightNavItems} />
           </div>
         </div>
       </div>
@@ -31,187 +107,64 @@ export const Navbar = () => {
   );
 };
 
-const Left = () => {
+const NavSide = ({ navItems }: { navItems: NavItem[] }) => {
   return (
     <div className="hidden h-full flex-row items-stretch justify-center font-medium tab:flex">
-      <NavigationMenu>
-        <NavigationMenuList>
-          {/* Existing menu items... */}
-
-          {/* Home */}
-          <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-            <Link href="https://acharyaprashant.org/" legacyBehavior passHref>
-              <NavigationMenuLink className="relative flex items-center space-x-2">
-                Home
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-
-          {/* Live Sessions with sub-links */}
-          <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-            <NavigationMenuTrigger className="relative flex items-center space-x-2">
-              Live Sessions
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <Link
-                href="https://acharyaprashant.org/en/gita"
-                legacyBehavior
-                passHref>
-                <NavigationMenuLink>Bhagavad Gita</NavigationMenuLink>
-              </Link>
-              <Link
-                href="https://acharyaprashant.org/en/sant-sarita"
-                legacyBehavior
-                passHref>
-                <NavigationMenuLink>Sant Sarita</NavigationMenuLink>
-              </Link>
-              <Link
-                href="https://acharyaprashant.org/en/vedant-samhita"
-                legacyBehavior
-                passHref>
-                <NavigationMenuLink>Vedanta Samhita</NavigationMenuLink>
-              </Link>
-              <Link
-                href="https://acharyaprashant.org/en/bodh-pratyusha"
-                legacyBehavior
-                passHref>
-                <NavigationMenuLink>Bodh Pratyusha</NavigationMenuLink>
-              </Link>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-
-          {/* Video Series */}
-          <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-            <Link
-              href="https://acharyaprashant.org/en/courses"
-              legacyBehavior
-              passHref>
-              <NavigationMenuLink className="relative flex items-center space-x-2">
-                Video Series
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-
-          {/* AP Books */}
-          <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-            <Link
-              href="https://acharyaprashant.org/en/books"
-              legacyBehavior
-              passHref>
-              <NavigationMenuLink className="relative flex items-center space-x-2">
-                AP Books
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-
-          {/* AP Articles */}
-          <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-            <Link
-              href="https://acharyaprashant.org/en/articles"
-              legacyBehavior
-              passHref>
-              <NavigationMenuLink className="relative flex items-center space-x-2">
-                AP Articles
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-
-          {/* Invite with sub-links */}
-          <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-            <NavigationMenuTrigger>Invite</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <Link
-                href="https://acharyaprashant.org/en/invite?tIn=0"
-                legacyBehavior
-                passHref>
-                <NavigationMenuLink>For a talk</NavigationMenuLink>
-              </Link>
-              <Link
-                href="https://acharyaprashant.org/en/invite?tIn=1"
-                legacyBehavior
-                passHref>
-                <NavigationMenuLink>For an interview</NavigationMenuLink>
-              </Link>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-
-          {/* In Media */}
-          <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-            <Link
-              href="https://acharyaprashant.org/en/media"
-              legacyBehavior
-              passHref>
-              <NavigationMenuLink>In Media</NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-
-          {/* Careers */}
-          <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-            <Link
-              href="https://acharyaprashant.org/en/hiring"
-              legacyBehavior
-              passHref>
-              <NavigationMenuLink className="relative flex items-center space-x-2">
-                Careers
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-
-          {/* Donate */}
-          <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-            <Link
-              href="https://acharyaprashant.org/en/contribute"
-              legacyBehavior
-              passHref>
-              <NavigationMenuLink className="relative flex items-center space-x-2">
-                Donate
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+      {navItems.map((item, index) => (
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavItemComponent key={index} item={item} />
+          </NavigationMenuList>
+        </NavigationMenu>
+      ))}
     </div>
   );
 };
 
-const Right = () => {
+const NavItemComponent = ({ item }: { item: NavItem }) => {
   return (
-    <div className="flex h-full content-center items-center justify-center laptop:mt-[1px] laptop:pr-8">
-      <NavigationMenu>
-        <NavigationMenuList>
-          <div className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-            {/* Language Dropdown */}
-            <NavigationMenuItem className="ml-4">
-              <NavigationMenuTrigger className="relative flex items-center space-x-2">
-                Language
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink>Hindi</NavigationMenuLink>
-                <NavigationMenuLink>English</NavigationMenuLink>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-
-            {/* Phone */}
-            <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-              <Link href="" legacyBehavior passHref>
-                <NavigationMenuLink className="relative flex items-center space-x-2">
-                  <FiPhone />
-                </NavigationMenuLink>
+    <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
+      {item.subItems ? (
+        <>
+          <NavigationMenuTrigger className="bg-orange-600 hover:bg-orange-300 hover:text-white">
+            {item.label}
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            {item.subItems.map((subItem, index) => (
+              <Link key={index} href={subItem.link} legacyBehavior passHref>
+                <ListItem title={subItem.label} href={subItem.link} />
               </Link>
-            </NavigationMenuItem>
-
-            {/* Menu */}
-            <NavigationMenuItem className="text-white-opacity-90 flex cursor-pointer items-center space-x-1 whitespace-nowrap transition-opacity duration-300 ease-in-out hover:opacity-100 tab:px-1.5 laptop:px-2.5 desk:px-4 svelte-ay56ew">
-              <Link href="" legacyBehavior passHref>
-                <NavigationMenuLink className="relative flex items-center space-x-2">
-                  <RxHamburgerMenu />
-                  Menu
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </div>
-        </NavigationMenuList>
-      </NavigationMenu>
-    </div>
+            ))}
+          </NavigationMenuContent>
+        </>
+      ) : (
+        <Link href={item.link} legacyBehavior passHref>
+          {item.icon ? (
+            <div className="">
+              <NavigationMenuLink>{item.icon}</NavigationMenuLink>
+            </div>
+          ) : (
+            <NavigationMenuLink>{item.label}</NavigationMenuLink>
+          )}
+        </Link>
+      )}
+    </NavigationMenuItem>
   );
 };
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, ...props }, ref) => {
+  return (
+    <ul>
+      <li>
+        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          <div className="text-sm font-medium leading-none">{title}</div>
+        </NavigationMenuLink>
+      </li>
+    </ul>
+  );
+});
+
+export default Navbar;
