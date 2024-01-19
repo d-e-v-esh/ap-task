@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import { AccordionWrapper } from "./AccordionWrapper";
 import { Accordion } from "@/components/ui/accordion";
 
-// TODO: Remove Underline
-// TODO: Left Align (Mobile)
 type FAQ = {
   question: string;
   answer: string;
