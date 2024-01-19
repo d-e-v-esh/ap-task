@@ -72,7 +72,7 @@ const CourseCard = ({
           <div className="inline-flex items-center space-x-3 text-xs font-medium">
             <div
               id="main-website-add-to-cart-borderless-button"
-              className="cursor-pointer rounded-md text-center transition-colors transition duration-150">
+              className="cursor-pointer rounded-md text-center transition-colors duration-150">
               <span className="text-orange-600 hover:text-orange-800">
                 ADD TO CART
               </span>
@@ -82,7 +82,7 @@ const CourseCard = ({
             </div>
             <div
               id="main-website-enroll-in-course-button"
-              className="cursor-pointer rounded-md text-center transition-colors transition duration-150">
+              className="cursor-pointer rounded-md text-center transition-colors duration-150">
               <span className="text-orange-600  hover:text-orange-800">
                 ENROL
               </span>

@@ -53,7 +53,7 @@ export const InnerNavbar = () => {
               <div className="flex h-10 content-center items-center justify-center space-x-4 pr-4 laptop:pr-12">
                 <Button
                   asChild
-                  className="cursor-pointer w-14 h-8 rounded-md text-center transition-colors transition duration-150 bg-orange-500 hover:bg-orange-600">
+                  className="cursor-pointer w-14 h-8 rounded-md text-center transition-colors duration-150 bg-orange-500 hover:bg-orange-600">
                   <Link href="https://acharyaprashant.org/en/login">Login</Link>
                 </Button>
               </div>
