@@ -27,6 +27,9 @@ const SideMenu: React.FC = () => {
     { title: "AP Books", link: "" },
     { title: "AP Articles", link: "" },
     { title: "Video Series", link: "" },
+    { title: "AP Circle", link: "" },
+
+    { title: "Invite For Talk", link: "" },
     { title: "Invite For an Interview", link: "" },
     { title: "Contact Us", link: "" },
     { title: "Careers", link: "" },
@@ -34,7 +37,6 @@ const SideMenu: React.FC = () => {
   ];
 
   const moreItems = [
-    { title: "Technical Support", link: "" },
     { title: "PrashantAdvait Foundation", link: "" },
     { title: "Ghar Ghar Upanishad", link: "" },
     { title: "About Acharya Prashant", link: "" },
@@ -47,7 +49,16 @@ const SideMenu: React.FC = () => {
     { title: "Saints and Masters", link: "" },
     { title: "Other Streams", link: "" },
     { title: "Life Questions", link: "" },
+    { title: "Technical Support", link: "" },
   ];
+
+  const Section = ({ children }: { children: React.ReactNode }) => {
+    return <div className="my-5">{children}</div>;
+  };
+
+  const Subtitle = ({ children }: { children: string }) => {
+    return <div className="p-4">{children}</div>;
+  };
 
   return (
     <div>
@@ -55,44 +66,52 @@ const SideMenu: React.FC = () => {
         <SheetTrigger>
           <RxHamburgerMenu className="w-5 h-5" />
         </SheetTrigger>
-        <SheetContent className="w-[400px] sm:w-[540px]">
+        <SheetContent className="w-[500px] sm:w-[540px]">
           <ScrollArea className="flex flex-col h-screen w-full">
             <SheetTitle>Login</SheetTitle>
             <Separator />
+            <Section>
+              {menuItems.map((item, index) => (
+                <Button
+                  key={index}
+                  className="justify-start w-full"
+                  variant="ghost"
+                  asChild>
+                  <Link href={item.link}>{item.title}</Link>
+                </Button>
+              ))}
+            </Section>
+            <Separator />
+            <Subtitle>MORE</Subtitle>
 
-            {menuItems.map((item, index) => (
-              <Button
-                key={index}
-                className="justify-start w-full"
-                variant="ghost"
-                asChild>
-                <Link href={item.link}>{item.title}</Link>
-              </Button>
-            ))}
+            <Section>
+              {moreItems.map((item, index) => (
+                <Button
+                  key={index}
+                  className="justify-start w-full"
+                  variant="ghost"
+                  asChild>
+                  <Link href={item.link}>{item.title}</Link>
+                </Button>
+              ))}
+            </Section>
 
             <Separator />
-            <SheetTitle>MORE</SheetTitle>
-            {moreItems.map((item, index) => (
-              <Button
-                key={index}
-                className="justify-start w-full"
-                variant="ghost"
-                asChild>
-                <Link href={item.link}>{item.title}</Link>
-              </Button>
-            ))}
+            <Subtitle>EXPLORE CATEGORIES</Subtitle>
 
-            <Separator />
-            <SheetTitle>EXPLORE CATEGORIES</SheetTitle>
-            {exploreItems.map((item, index) => (
-              <Button
-                key={index}
-                className="justify-start w-full"
-                variant="ghost"
-                asChild>
-                <Link href={item.link}>{item.title}</Link>
-              </Button>
-            ))}
+            <Section>
+              {exploreItems.map((item, index) => (
+                <Button
+                  key={index}
+                  className="justify-start w-full"
+                  variant="ghost"
+                  asChild>
+                  <Link href={item.link}>{item.title}</Link>
+                </Button>
+              ))}
+            </Section>
+
+            <div className="h-8" />
           </ScrollArea>
         </SheetContent>
       </Sheet>
