@@ -15,6 +15,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
 import Image from "next/image";
 import HeadIcon from "../../img/ic_favicon.png";
+import SideMenu from "./SideMenu";
 
 type NavItem = {
   label: string;
@@ -81,7 +82,6 @@ export const Navbar = () => {
       link: "https://acharyaprashant.org/en/enquiry",
       icon: <FiPhone className="w-5 h-5" />,
     },
-    { label: "Menu", link: "#", icon: <RxHamburgerMenu className="w-5 h-5" /> },
   ];
 
   return (
@@ -100,6 +100,7 @@ export const Navbar = () => {
           </div>
           <div className="flex h-full content-center items-center justify-center laptop:mt-[1px] laptop:pr-8">
             <NavSide navItems={rightNavItems} />
+            <SideMenu />
           </div>
         </div>
       </div>
